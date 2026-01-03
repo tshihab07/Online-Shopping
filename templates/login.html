@@ -1,37 +1,109 @@
 {% extends 'base.html' %}
 
-{% block title %}Log in{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
-<!-- <div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
-    <h1 class="mb-6 text-3xl">Log in</h1>
+<style>
+    .login-container {
+        max-width: 420px;
+        margin: 60px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
 
-    <form method="post" action=".">
-        {% csrf_token %}
+    .login-container h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+    }
 
-        <div class="mb-3">
-            <label class="inline-block mb-2">Username</label><br>
-            {{ form.username }}
-        </div>
+    .login-container label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #444;
+    }
 
-        <div class="mb-3">
-            <label class="inline-block mb-2">Password</label><br>
-            {{ form.password }}
-        </div>
+    .login-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 18px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
 
-        {% if form.errors or form.non_field_errors %}
-            <div class="mb-3 p-6 bg-red-100 rounded-xl">
-                {% for field in form %}
-                    {{ field.errors }}
-                {% endfor %}
+    .login-container input:focus {
+        outline: none;
+        border-color: #4a90e2;
+    }
 
-                {{ form.non_field_errors }}
-            </div>
-        {% endif %}
+    .login-container button {
+        width: 100%;
+        padding: 12px;
+        background-color: #4a90e2;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+    }
 
-        <button class="py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Submit</button>
+    .login-container button:hover {
+        background-color: #357abd;
+    }
+
+    .login-footer {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .login-footer a {
+        color: #4a90e2;
+        text-decoration: none;
+    }
+
+    .login-footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <h1>Login</h1>
+
+    <form method="post" action="/login">
+        <label for="username">Username or Email</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username or email"
+            required
+        >
+
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+        >
+
+        <button type="submit">Login</button>
     </form>
-</div> -->
 
-<h1>Login Page</h1>
+    <div class="login-footer">
+        <p>
+            Don’t have an account?
+            <a href="/register">Register</a>
+        </p>
+    </div>
+</div>
 {% endblock %}
