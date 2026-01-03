@@ -7,6 +7,6 @@ urlpatterns = [
     path('', index, name='index'),
     path('contact/', contact, name='contact'),
     path('login/', login, name='login'),
-    path('signup/', register, name='register'),
+    path('signup/', register, name='signup'),           # refactor: name = register -> name = signup
     path('admin/', admin.site.urls),
 ]
