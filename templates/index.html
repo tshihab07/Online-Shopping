@@ -3,13 +3,25 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-    <div class="px-6 py-16 text-center">
-        <h1 class="text-xl font-bold">Bengal Express</h1>
-        <p>Bengal Express is more than just an online marketplace; it's a vibrant, curated destination dedicated to the rich culture, exquisite craftsmanship, and unique flavors of Bengal. We connect you directly to authentic products and passionate sellers from across the region and beyond.</p>
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Newest items</h2>
 
-        <p>Whether you're seeking the intricate weave of a Baluchari saree, the earthy sweetness of Nolen Gur, timeless terracotta crafts, contemporary art, or handcrafted jewelry, Bengal Express brings it to your doorstep. We are committed to celebrating heritage, empowering local artisans, and providing a seamless, trustworthy shopping experience.</p>
-
-        <p>Discover the essence of Bengal, delivered with speed and care. Your journey into authenticity starts here.</p>
-
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+                <div class="card">
+                    <a href="#" class="card-link">
+                        <div>
+                            <img src="{{ item.image.url}}" class="card-image rounded-t-xl">
+                        </div>
+                        
+                        <div class="p-6 rounded-b-xl card-body">
+                            <h2 class="text-2xl">{{ item.name }}</h2>
+                            <p class="text-black-800">Price: {{ item.price }}</p>
+                            <p class="description">{{ item.description }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
