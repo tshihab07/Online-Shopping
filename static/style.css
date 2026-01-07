@@ -42,14 +42,11 @@ body {
 
 .description {
     overflow: hidden;
-    font-size: 0.85rem;
+    font-size: 1.25rem;
     display: -webkit-box;
     white-space: pre-line;
     -webkit-box-orient: vertical;
 }
-
-
-
 
 /* Shared container styles */
 .form-container {
