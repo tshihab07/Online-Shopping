@@ -4,5 +4,5 @@ from .views import item_detail
 app_name = "item"
 
 urlpatterns = [
-    path('<int:pk>/', item_detail, name='item-detail'),
+    path('<int:pk>/', item_detail, name='item_detail'),
 ]
