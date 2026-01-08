@@ -3,8 +3,10 @@ from .models import Item
 
 def item_detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
+    related_items = Item.objects.filter(category=item.category).exclude(pk=pk)[:3]
     
     return render (request, "details.html",
             {
-              'item': item
+              'item': item,
+              'related_items': related_items
             })
