@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from  django.contrib.auth import login
 from item.models import Category, Item
+from .form import RegisterForm
 
 def index(request):
     items = Item.objects.filter(is_sold = False)[0:6]
@@ -19,4 +21,18 @@ def login(request):
 
 
 def register(request):
-    return render(request, 'signup.html')
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            # user = form.save()
+            # login(request, user)
+            return redirect('login/')
+    
+    else:
+        form = RegisterForm()
+    
+    return render(request, "signup.html", {
+        "form": form
+    })
